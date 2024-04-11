@@ -6,17 +6,17 @@ exports.config = {
       defaultHeaders: {
         Authorization: 'Bearer 11111',
         'Content-Type': 'application/json',
-        Accept: 'application/json'
+        Accept: 'application/json',
       },
       prettyPrintJson: true,
       onRequest: (request) => {
         request.headers.auth = '123';
       },
     },
-    JSONResponse: {}
+    JSONResponse: {},
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
   },
   mocha: {},
   bootstrap: null,
@@ -25,38 +25,39 @@ exports.config = {
   hooks: [],
   gherkin: {
     features: './features/*.feature',
-    steps: ['./step_definitions/steps.js']
+    steps: ['./step_definitions/steps.js'],
   },
   plugins: {
     screenshotOnFail: {
-      enabled: true
+      enabled: true,
     },
     fakerTransform: {
-      enabled: true
+      enabled: true,
     },
     tryTo: {
-      enabled: true
+      enabled: true,
     },
     retryFailedStep: {
-      enabled: true
+      enabled: true,
     },
     retryTo: {
-      enabled: true
+      enabled: true,
     },
     eachElement: {
-      enabled: true
+      enabled: true,
     },
-    pauseOnFail: {}
+    pauseOnFail: {},
   },
   stepTimeout: 0,
-  stepTimeoutOverride: [{
+  stepTimeoutOverride: [
+    {
       pattern: 'wait.*',
-      timeout: 0
+      timeout: 0,
     },
     {
       pattern: 'amOnPage',
-      timeout: 0
-    }
+      timeout: 0,
+    },
   ],
-  name: 'api-codeceptjs'
-}
+  name: 'api-codeceptjs',
+};

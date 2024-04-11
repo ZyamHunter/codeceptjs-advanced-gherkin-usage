@@ -14,7 +14,8 @@ const headers = {
   origin: 'https://web-next.test.com',
 };
 
-Given('I have products in my cart', (table) => { // eslint-disable-line  
+Given('I have products in my cart', (table) => {
+  // eslint-disable-line
   for (const id in table.rows) {
     if (id < 1) {
       continue; // skip a header of a table
@@ -30,13 +31,13 @@ Given('I have products in my cart', (table) => { // eslint-disable-line
 
     productsArray.push({ name, category, price });
   }
-  console.log(productsArray)
+  console.log(productsArray);
 });
 
 Given('test com tabela usando raw', (table) => {
   const dataTable = new dataTableArgument(table);
 
-  const raw = dataTable.raw(); 
+  const raw = dataTable.raw();
   // row = [['Harry', 'Potter'], ['Chuck', 'Norris']]
   dataTable.transpose();
   const transposedRaw = dataTable.raw();
@@ -44,29 +45,28 @@ Given('test com tabela usando raw', (table) => {
 
   testTableArray.push(transposedRaw);
 
-  // [ 
-  //   [ 
-  //     [ 'Harry', 'Chuck', 'Jogo' ], 
-  //     [ 'Potter', 'Norris', 'FC' ] 
-  //   ] 
+  // [
+  //   [
+  //     [ 'Harry', 'Chuck', 'Jogo' ],
+  //     [ 'Potter', 'Norris', 'FC' ]
+  //   ]
   // ]
 
-  console.log(testTableArray[0])
+  console.log(testTableArray[0]);
 
-  // [ 
-  //   [ 'Harry', 'Chuck', 'Jogo' ], 
-  //   [ 'Potter', 'Norris', 'FC' ] 
-  // ] 
-
+  // [
+  //   [ 'Harry', 'Chuck', 'Jogo' ],
+  //   [ 'Potter', 'Norris', 'FC' ]
+  // ]
 });
 
 Given('test com tabela usando hashes', (table) => {
   const dataTable = new dataTableArgument(table);
-  const hashes = dataTable.hashes(); 
+  const hashes = dataTable.hashes();
   // hashes = [{ name: 'Harry', surname: 'Potter', position: 'Seeker' }];
 
-  testHashesJSON = hashes[0]
-  console.log(testHashesJSON)
+  testHashesJSON = hashes[0];
+  console.log(testHashesJSON);
 });
 
 Given('test com tabela usando rowrash', (table) => {
@@ -75,7 +75,7 @@ Given('test com tabela usando rowrash', (table) => {
   // rowsHash = { name: 'Harry', surname: 'Potter', position: 'Seeker' };
 
   testRowHashJSON = rowsHash;
-  console.log(testRowHashJSON)
+  console.log(testRowHashJSON);
 });
 
 Given('que gere a massa', () => {
@@ -88,8 +88,17 @@ Given('que gere a massa', () => {
   const countryCode = fakerPT_BR.location.countryCode();
   const zipCode = fakerPT_BR.location.zipCode();
 
-  console.log(animal, jobDescriptor, personFullName, phoneNumber, buildingNumber, city, countryCode, zipCode)
-})
+  console.log(
+    animal,
+    jobDescriptor,
+    personFullName,
+    phoneNumber,
+    buildingNumber,
+    city,
+    countryCode,
+    zipCode,
+  );
+});
 
 Given('que faça uma chamada na api', async () => {
   try {
@@ -97,36 +106,35 @@ Given('que faça uma chamada na api', async () => {
     I.seeResponseCodeIsSuccessful();
     I.seeResponseCodeIs(200);
 
-    console.log(response.data)
-
+    console.log(response.data);
   } catch (error) {
     console.error('Erro ao recuperar um post: ', error.message);
     throw new Error('Erro ao recuperar um post: ', error.message);
   }
-})
+});
 
 Given('tenha um produto {string}', (data) => {
-  console.log(data)
-})
+  console.log(data);
+});
 
 When('seja uma pessoa com nome {string}', (data) => {
-  console.log(data)
-})
+  console.log(data);
+});
 
 When('tenha um email {string}', (data) => {
-  console.log(data)
-})
+  console.log(data);
+});
 
 When('dado do tipo {string}', (data) => {
-  console.log(data)
-})
+  console.log(data);
+});
 
 Given('I have product with price {int}$ in my cart', (price) => {
-  console.log(price)
+  console.log(price);
 });
 
 Then('I should see overall price is {string} $', (expectedTotal) => {
-  console.log(expectedTotal)
+  console.log(expectedTotal);
 });
 
 Given('I use {string}', (browser) => {
@@ -134,6 +142,6 @@ Given('I use {string}', (browser) => {
 });
 
 When('I see {string} text and {string}', (text1, text2) => {
-  console.log(text1)
-  console.log(text2)
+  console.log(text1);
+  console.log(text2);
 });
