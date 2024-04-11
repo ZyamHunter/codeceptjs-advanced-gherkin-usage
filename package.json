@@ -1,0 +1,18 @@
+{
+  "name": "api-codeceptjs-data-management",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx codeceptjs run --steps"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "codeceptjs": "^3.5.14",
+    "prettier": "^3.2.5",
+    "rosie": "^2.1.1"
+  }
+}
