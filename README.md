@@ -32,6 +32,10 @@ Ao instalar, provavelmente vários pacotes adicionais serão instalados, como ch
 
 > npx codeceptjs init
 
+## Inicie o Gherkin no codeceptjs:
+
+> npx codeceptjs gherkin:init
+
 ## Criar arquivos de teste:
 
 > npx codeceptjs gt

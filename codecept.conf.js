@@ -1,38 +1,62 @@
-const { setHeadlessWhen, setCommonPlugins } = require('@codeceptjs/configure');
-// turn on headless mode when running with HEADLESS=true environment variable
-// export HEADLESS=true && npx codeceptjs run
-setHeadlessWhen(process.env.HEADLESS);
-
-// enable all common plugins https://github.com/codeceptjs/configure#setcommonplugins
-setCommonPlugins();
-
-/** @type {CodeceptJS.MainConfig} */
 exports.config = {
-  tests: './tests/*_test.js',
   output: './output',
   helpers: {
     REST: {
       endpoint: 'https://jsonplaceholder.typicode.com/',
       defaultHeaders: {
-        // use Bearer Authorization
         Authorization: 'Bearer 11111',
         'Content-Type': 'application/json',
-        Accept: 'application/json',
+        Accept: 'application/json'
       },
       prettyPrintJson: true,
       onRequest: (request) => {
         request.headers.auth = '123';
       },
     },
-    JSONResponse: {},
+    JSONResponse: {}
   },
   include: {
-    I: './steps_file.js',
+    I: './steps_file.js'
+  },
+  mocha: {},
+  bootstrap: null,
+  timeout: null,
+  teardown: null,
+  hooks: [],
+  gherkin: {
+    features: './features/*.feature',
+    steps: ['./step_definitions/steps.js']
   },
   plugins: {
-    fakerTransform: {
-      enabled: true,
+    screenshotOnFail: {
+      enabled: true
     },
+    fakerTransform: {
+      enabled: true
+    },
+    tryTo: {
+      enabled: true
+    },
+    retryFailedStep: {
+      enabled: true
+    },
+    retryTo: {
+      enabled: true
+    },
+    eachElement: {
+      enabled: true
+    },
+    pauseOnFail: {}
   },
-  name: 'api-codeceptjs',
-};
+  stepTimeout: 0,
+  stepTimeoutOverride: [{
+      pattern: 'wait.*',
+      timeout: 0
+    },
+    {
+      pattern: 'amOnPage',
+      timeout: 0
+    }
+  ],
+  name: 'api-codeceptjs'
+}
